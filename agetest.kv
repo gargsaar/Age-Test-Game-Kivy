@@ -1,0 +1,70 @@
+#:import utils kivy.utils
+
+<AgeTest>:
+    rows: 3
+
+    # row1: Timer and Start/Reset Buttons
+    BoxLayout:
+        orientation: 'horizontal'
+        id: flayout_title
+        size_hint: 1, .2
+        BoxLayout:
+            padding: 10
+            spacing: 10
+            MDRectangleFlatButton:
+                id: label_timer
+                size_hint: 1, 1
+                text: "%s:%s" % (root.minutes, root.seconds)
+                text_color: utils.get_color_from_hex("#f2ec44")
+                #md_bg_color: utils.get_color_from_hex("#2a5f2d")
+                halign: 'center'
+                markup: True
+                font_size: '18sp'
+                text_size: self.width, None
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+                MDRaisedButton:
+                    id: button_start
+                    text: "[b]Start[/b]"
+                    size_hint: 1, 1
+                    #md_bg_color: utils.get_color_from_hex("#339933")
+                    markup: True
+                    text_size: self.width, None
+                    on_release: root.start_timer()
+                MDRaisedButton:
+                    id: button_stop
+                    size_hint: 1, 1
+                    text: "[b]Reset[/b]"
+                    markup: True
+                    md_bg_color: utils.get_color_from_hex("56555a")
+                    text_color: utils.get_color_from_hex("#f2ec44")
+                    text_size: self.width, None
+                    on_release: root.reset_timer()
+
+    #instructions grid with timer and buttons
+    BoxLayout:
+        id: flayout_instruction
+        size_hint: 1, .1
+        padding: [10,10]
+        Label:
+            id: label_instruction
+            halign: 'center'
+            text: "Touch numbers from 1 to 50 in the 'correct sequence'"
+            color: utils.get_color_from_hex("#f2ec44")
+            markup: True
+            font_size: '11sp'
+            text_size: self.width, None
+
+    #number grid
+    GridLayout:
+        id: number_grid
+        cols: 5
+        size_hint: 1, 1
+        pos_hint: {'x': 0, 'y': 0}
+        canvas.before:
+            Color:
+                rgb: utils.get_color_from_hex("#56555a")
+            Rectangle:
+                size: self.size
+                pos: self.pos
