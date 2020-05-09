@@ -1,6 +1,7 @@
 # Age Test Game
 
 Kivy app for a game to test the mental agility of the player
+
 ![Game Cover](https://github.com/gargsaar/age_test_game/blob/master/Age_test_game_cover.png)
 
 ## Game Screenshot
