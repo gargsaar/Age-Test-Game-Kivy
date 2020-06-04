@@ -10,6 +10,6 @@ KivyMD is a collection of Material Design compliant widgets for use with Kivy fr
 
 ## Game Screenshot
 
-![Game Screenshot](https://github.com/gargsaar/age_test_game/blob/master/Age_test_game_screenshot.png)
+<img src="https://github.com/gargsaar/age_test_game/blob/master/Age_test_game_screenshot.png" alt="Age_Test" title="Age Test Game" width="300" height="500" />
 
 
