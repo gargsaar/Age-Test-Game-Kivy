@@ -1,0 +1,121 @@
+#:import utils kivy.utils
+
+<AgeTestGame>:
+    rows: 4
+    BoxLayout:
+        orientation:'vertical'
+        size_hint: 1, .2
+        id: blayout_toolbar
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#dcd71f")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 1
+            Label:
+                id: toolbar
+                size_hint: 1, 1
+                halign: 'center'
+                text: "Bolt"
+                markup: True
+                color: utils.get_color_from_hex("#848b96")
+                font_size: '45sp'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, .5
+            Label:
+                id: toolbar
+                size_hint: 1, 1
+                halign: 'center'
+                text: "the age test game"
+                markup: True
+                color: utils.get_color_from_hex("#848b96")
+                font_size: '11sp'
+
+    #AgeTest Logo with timer and Start/Reset Buttons
+    BoxLayout:
+        orientation: 'horizontal'
+        id: flayout_title
+        size_hint: 1, .15
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#e4eaf1")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            padding: 10
+            spacing: 10
+            Label:
+                id: label_timer
+                size_hint: 1, 1
+                halign: 'center'
+                text: "%s:%s" % (root.minutes, root.seconds)
+                color: utils.get_color_from_hex("#a4a3ae")
+                font_size: '35sp'
+                text_size: self.width, None
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 10
+            spacing: 10
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+                Button:
+                    id: button_start
+                    text: "[b]Start[/b]"
+                    size_hint: 1, 1
+                    background_color: utils.get_color_from_hex("#a4a3ae")
+                    color: utils.get_color_from_hex("#dcd71f")
+                    markup: True
+                    halign: 'center'
+                    text_size: self.width, None
+                    on_release: root.start_timer()
+                Button:
+                    id: button_stop
+                    size_hint: 1, 1
+                    text: "[b]Reset[/b]"
+                    markup: True
+                    halign: 'center'
+                    background_color: utils.get_color_from_hex("#a4a3ae")
+                    color: utils.get_color_from_hex("#dcd71f")
+                    text_size: self.width, None
+                    on_release: root.reset_timer()
+
+    #instructions grid with timer and buttons
+    BoxLayout:
+        id: flayout_instruction
+        size_hint: 1, .15
+        padding: [15,15]
+        canvas:
+            Color:
+                rgb: utils.get_color_from_hex("#848b96")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            id: label_instruction
+            halign: 'center'
+            text: "Touch numbers from 1 to 50 in the correct sequence, AS FAST AS YOU CAN!"
+            color: utils.get_color_from_hex("#dcd71f")
+            markup: True
+            font_size: '13sp'
+            text_size: self.width, None
+
+    #number grid
+    GridLayout:
+        id: number_grid
+        cols: 5
+        size_hint: 1, 1
+        pos_hint: {'x': 0, 'y': 0}
+        canvas.before:
+            Color:
+                rgb: utils.get_color_from_hex("#848b96")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+
